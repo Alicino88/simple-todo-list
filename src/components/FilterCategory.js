@@ -6,8 +6,9 @@ function FilterCategory(props) {
   };
   return (
     <div>
-      <label>Filter by year</label>
+      <label>Filter by category</label>
       <select onChange={filterCategory} value={props.visibleCategory}>
+        <option>All</option>
         <option>Family</option>
         <option>Study</option>
         <option>Home</option>

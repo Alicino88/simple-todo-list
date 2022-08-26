@@ -2,7 +2,7 @@ import FilterCategory from "./FilterCategory";
 import { useState } from "react";
 
 function ToDos(props) {
-  const [selectedCategory, setSelectedCategory] = useState("Study");
+  const [selectedCategory, setSelectedCategory] = useState("All");
   /*the category arrives from the child component FilterCategory */
   const filterChangeCategory = (category) => {
     console.log(category);
@@ -19,6 +19,15 @@ function ToDos(props) {
         onSelectCategory={filterChangeCategory}
         visibleCategory={selectedCategory}
       />
+      {selectedCategory === "All" &&
+        props.items.map((item) => (
+          <div key={item.key}>
+            <h3>{item.title}</h3>
+            <p>{item.hours}</p>
+            <p>{item.category}</p>
+          </div>
+        ))}
+
       {filteredToDos.map((item) => (
         <div key={item.key}>
           <h3>{item.title}</h3>
